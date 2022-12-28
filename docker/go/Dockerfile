@@ -1,10 +1,11 @@
-FROM golang:1.16-alpine AS Builder
+FROM golang:1.19.4-buster AS Builder
 WORKDIR /app
-COPY *.go ./
+COPY main.go ./
 RUN go build main.go
 
-FROM golang:1.16-alpine
-WORKDIR /app
+FROM gcr.io/distroless/base-debian10
+WORKDIR /
 COPY --from=Builder /app .
+USER nonroot:nonroot
 
 CMD [ "./main" ]

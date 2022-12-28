@@ -1,2 +1,8 @@
 go run main.go == to execute 
 go build main.go == to build
+
+docker build -t gladstonethiago/fullcycle . -f Dockerfile
+docker run gladstonethiago/fullcycle
+docker push gladstonethiago/fullcycle
+docker pull gladstonethiago/fullcycle
+docker run gladstonethiago/fullcycle
