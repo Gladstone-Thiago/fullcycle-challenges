@@ -1,11 +1,9 @@
-FROM golang:1.19.4-buster AS Builder
+FROM golang:1.19.4-buster as builder
 WORKDIR /app
 COPY main.go ./
-RUN go build main.go
+RUN go build -o /main main.go
 
-FROM gcr.io/distroless/base-debian10
+FROM scratch
 WORKDIR /
-COPY --from=Builder /app .
-USER nonroot:nonroot
-
+COPY --from=builder /main /main
 CMD [ "./main" ]
