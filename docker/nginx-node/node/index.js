@@ -54,7 +54,7 @@ async function getPeople(res, connection) {
     }
 
     table += '</table>';    
-    res.send('<h1>Full Cycle Rocks!</h1>' + table);    
+    res.send('<h1>Full Cycle Rocks!</h1> <br> <h4> Lista de nomes cadastrada no banco de dados </h4>' + table);    
   });   
   connection.end();
 }
