@@ -11,4 +11,5 @@
     export GPG_TTY=$(tty)
     git config commit.gpgsign true or git config --global commit.gpgsign true
     git config tag.gpgSign true or git config --global tag.gpgSign true
+    git log --show-signature -1
 
